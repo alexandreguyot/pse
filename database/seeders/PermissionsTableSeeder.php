@@ -138,6 +138,74 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 32,
                 'title' => 'professional_category_access',
             ],
+            [
+                'id'    => 33,
+                'title' => 'task_management_access',
+            ],
+            [
+                'id'    => 34,
+                'title' => 'task_status_create',
+            ],
+            [
+                'id'    => 35,
+                'title' => 'task_status_edit',
+            ],
+            [
+                'id'    => 36,
+                'title' => 'task_status_show',
+            ],
+            [
+                'id'    => 37,
+                'title' => 'task_status_delete',
+            ],
+            [
+                'id'    => 38,
+                'title' => 'task_status_access',
+            ],
+            [
+                'id'    => 39,
+                'title' => 'task_tag_create',
+            ],
+            [
+                'id'    => 40,
+                'title' => 'task_tag_edit',
+            ],
+            [
+                'id'    => 41,
+                'title' => 'task_tag_show',
+            ],
+            [
+                'id'    => 42,
+                'title' => 'task_tag_delete',
+            ],
+            [
+                'id'    => 43,
+                'title' => 'task_tag_access',
+            ],
+            [
+                'id'    => 44,
+                'title' => 'task_create',
+            ],
+            [
+                'id'    => 45,
+                'title' => 'task_edit',
+            ],
+            [
+                'id'    => 46,
+                'title' => 'task_show',
+            ],
+            [
+                'id'    => 47,
+                'title' => 'task_delete',
+            ],
+            [
+                'id'    => 48,
+                'title' => 'task_access',
+            ],
+            [
+                'id'    => 49,
+                'title' => 'task_calendar_access',
+            ],
         ];
 
         Permission::insert($permissions);

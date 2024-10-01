@@ -106,6 +106,53 @@
                         </ul>
                     </li>
                 @endcan
+                @can('task_management_access')
+                    <li class="items-center">
+                        <a class="has-sub {{ request()->is("admin/task-statuses*")||request()->is("admin/task-tags*")||request()->is("admin/tasks*")||request()->is("admin/task-calendars*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="#" onclick="window.openSubNav(this)">
+                            <i class="fa-fw fas c-sidebar-nav-icon fa-list">
+                            </i>
+                            {{ trans('cruds.taskManagement.title') }}
+                        </a>
+                        <ul class="ml-4 subnav hidden">
+                            @can('task_status_access')
+                                <li class="items-center">
+                                    <a class="{{ request()->is("admin/task-statuses*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.task-statuses.index") }}">
+                                        <i class="fa-fw c-sidebar-nav-icon fas fa-server">
+                                        </i>
+                                        {{ trans('cruds.taskStatus.title') }}
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('task_tag_access')
+                                <li class="items-center">
+                                    <a class="{{ request()->is("admin/task-tags*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.task-tags.index") }}">
+                                        <i class="fa-fw c-sidebar-nav-icon fas fa-server">
+                                        </i>
+                                        {{ trans('cruds.taskTag.title') }}
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('task_access')
+                                <li class="items-center">
+                                    <a class="{{ request()->is("admin/tasks*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.tasks.index") }}">
+                                        <i class="fa-fw c-sidebar-nav-icon fas fa-briefcase">
+                                        </i>
+                                        {{ trans('cruds.task.title') }}
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('task_calendar_access')
+                                <li class="items-center">
+                                    <a class="{{ request()->is("admin/task-calendars*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.task-calendars.index") }}">
+                                        <i class="fa-fw c-sidebar-nav-icon fas fa-calendar">
+                                        </i>
+                                        {{ trans('cruds.taskCalendar.title') }}
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
 
                 @if(file_exists(app_path('Http/Controllers/Auth/UserProfileController.php')))
                     @can('auth_profile_edit')
