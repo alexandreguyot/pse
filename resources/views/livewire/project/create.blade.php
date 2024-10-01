@@ -1,8 +1,8 @@
-<form wire:submit.prevent="submit" class="pt-3">
+<form wire:submit="submit" class="pt-3">
 
     <div class="form-group {{ $errors->has('project.name') ? 'invalid' : '' }}">
         <label class="form-label required" for="name">{{ trans('cruds.project.fields.name') }}</label>
-        <input class="form-control" type="text" name="name" id="name" required wire:model.defer="project.name">
+        <input class="form-control" type="text" name="name" id="name" required wire:model="project.name">
         <div class="validation-message">
             {{ $errors->first('project.name') }}
         </div>
