@@ -6,6 +6,10 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProfessionalCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\TaskCalendarController;
+use App\Http\Controllers\Admin\TaskController;
+use App\Http\Controllers\Admin\TaskStatusController;
+use App\Http\Controllers\Admin\TaskTagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\UserProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +39,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // Professional Category
     Route::resource('professional-categories', ProfessionalCategoryController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Task Status
+    Route::resource('task-statuses', TaskStatusController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Task Tag
+    Route::resource('task-tags', TaskTagController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Task
+    Route::post('tasks/media', [TaskController::class, 'storeMedia'])->name('tasks.storeMedia');
+    Route::resource('tasks', TaskController::class, ['except' => ['store', 'update', 'destroy']]);
+
+    // Task Calendar
+    Route::resource('task-calendars', TaskCalendarController::class, ['except' => ['store', 'update', 'destroy', 'create', 'edit', 'show']]);
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {
